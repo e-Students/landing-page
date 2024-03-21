@@ -3,7 +3,7 @@ import Button from './Button';
 import Logo from './Logo';
 import ContactUsModal from './modals/ContactUsModal';
 const Navbar = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   console.log(isModalOpen);
   return (
     <nav className=' bg-primary w-full h-[100px] flex flex-wrap items-center justify-between px-4 font-base'>
