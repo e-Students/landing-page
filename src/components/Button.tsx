@@ -9,7 +9,7 @@ const Button = ({ children, className, handler, Icon }: ButtonProps) => {
   return (
     <button
       onClick={handler}
-      className={`border bg-tertiary py-1 px-3 rounded-full text-sm ${className}`}>
+      className={`border py-1 px-3 rounded-full text-sm ${className}`}>
       {Icon}
       {children}
     </button>
