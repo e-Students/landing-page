@@ -17,12 +17,6 @@ const Navbar = () => {
           }>
           Contact
         </Button>
-        <Button
-          className='border  py-1 px-3 rounded-full text-sm '
-          handler={() => {}}>
-          Newsletter
-        </Button>
-        <Button>Form</Button>
       </section>
     </nav>
   );
