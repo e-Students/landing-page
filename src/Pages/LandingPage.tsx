@@ -6,12 +6,13 @@ interface LandingPageProps {
 
 const LandingPage = ({ data }: LandingPageProps) => {
   return (
-    <div className='grid grid-rows-9 h-full items-center font-base'>
+    <div className='grid h-full items-center font-base'>
       {data.map((item) => (
         <Acordeon
           title={item.title}
           description={item.content}
           key={item.id}
+          id={item.id}
         />
       ))}
     </div>
