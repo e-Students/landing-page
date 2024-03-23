@@ -29,7 +29,7 @@ const UnsubscribePage = () => {
     }
   };
   return (
-    <div className='h-[749px] w-full flex items-center justify-center flex-col gap-6'>
+    <div className='min-h-[765px] items-stretch w-full flex justify-center flex-col gap-6 p-36'>
       {isSubmitting && <Loader />}
       <h1 className='text-xl font-bold text-center font-base text-neutral-500 '>
         Unsubscribe from our newsletter
@@ -41,7 +41,7 @@ const UnsubscribePage = () => {
           {...register('email', { required: true })}
           type='email'
           placeholder='Enter your email'
-          className='border-none p-2 w-[350px] focus:outline-none focus:ring-0 focus:border-transparent'
+          className='border-none p-2 px-4 w-[350px] focus:outline-none focus:ring-0 focus:border-transparent'
         />
         {errors.email && (
           <span className='text-red-500'>This field is required</span>
