@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   console.log(isModalOpen);
   return (
-    <nav className=' bg-primary w-full h-[100px] flex flex-wrap items-center justify-between px-4 font-base'>
+    <nav className=' bg-primary w-full min-h-[100px] flex flex-wrap items-center justify-between px-4 font-base'>
       <div className='ml-8'>
         <Logo />
       </div>

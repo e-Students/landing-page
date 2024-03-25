@@ -27,7 +27,7 @@ const Footer = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <footer className='bottom-0 left-0 right-0 bg-primary flex flex-col items-center justify-center gap-3 p-6 font-base'>
+      <footer className=' bg-primary flex flex-col items-center justify-center gap-3 p-6 font-base w-full'>
         <p className='text-sm  text-center'>
           You can follow our news by entering your email below and clicking the
           button, the first 1,000 to subscribe will get a special medal and

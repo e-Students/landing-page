@@ -1,26 +1,51 @@
+import clsx from 'clsx';
+import { useRef } from 'react';
+import { motion } from 'framer-motion';
+
 interface AcordeonProps {
-    title: string;
-    description: string;
-    className?: string;
-    id: number;
+  title: string;
+  description: string[];
+  className?: string;
+  id: number;
+  onOpen?: () => void;
 }
 
-const Acordeon = ({ title, description, className, id }: AcordeonProps) => {
+const Acordeon = ({
+  title,
+  description,
+  className,
+  id,
+  onOpen,
+}: AcordeonProps) => {
+  const acordionRef = useRef<HTMLDivElement>(null);
+  console.log(acordionRef);
   return (
-    <div className={`row-span-3 grid grid-cols-12 border-4 ${className}`
+    <motion.div
+      onClick={onOpen}
+      className={`row-span-3 grid grid-cols-12  cursor-pointer transition-all duration-500 ${className}`}
+      ref={acordionRef}>
+      {id % 2 !== 0 ? (
+        <>
+          <motion.h2 className='text-4xl flex col-span-6 w-full h-full items-center text-center justify-center'>
+            {title}
+          </motion.h2>
 
-    
-    }>
-        {id % 2 !== 0 ? (<>
-        <h2 className="text-4xl flex col-span-6 w-full h-full items-center text-center justify-center">{title}</h2>
-        <p className="col-span-6 p-20 text-lg">{description}</p></>
-        ) : (<>
-        <p className="col-span-6 p-6">{description}</p>
-        <h2 className="text-4xl flex col-span-6 w-full h-full items-center text-center justify-center">{title}</h2></>
-        ) }
-        
-      </div>
-  )
-}
+          <motion.p className={clsx('col-span-6 text-sm p-5')}>
+            {description[0]}
+          </motion.p>
+        </>
+      ) : (
+        <>
+          <motion.p className={clsx('col-span-6 text-sm p-5')}>
+            {description[0]}
+          </motion.p>
+          <motion.h2 className='text-4xl flex col-span-6 w-full h-full items-center text-center justify-center'>
+            {title}
+          </motion.h2>
+        </>
+      )}
+    </motion.div>
+  );
+};
 
-export default Acordeon
+export default Acordeon;
