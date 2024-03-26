@@ -29,7 +29,7 @@ const UnsubscribePage = () => {
     }
   };
   return (
-    <div className='min-h-full w-full flex justify-center flex-col gap-6 p-6 bg-white lg:px-60 md:px-36 overflow-auto'>
+    <div className='min-h-fit w-full flex justify-center flex-col gap-6 p-6 bg-white lg:px-60 md:px-36 overflow-auto'>
       {isSubmitting && <Loader />}
       <h1 className='text-xl font-bold text-center font-base text-neutral-500 '>
         Unsubscribe from our newsletter
