@@ -17,7 +17,7 @@ const Footer = () => {
 
     try {
       console.log(data);
-      await axios.post('http://localhost:4000/newMail', data);
+      await axios.post(import.meta.env.BASE_URL + '/newMail', data);
     } catch (error: unknown) {
       console.log(error);
     } finally {
