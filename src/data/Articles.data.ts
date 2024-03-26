@@ -1,12 +1,18 @@
+import medals from '../assets/medals.jpg';
+import campus from '../assets/campus.jpg';
+import students from '../assets/students_talking.jpg';
+
 type DataProps = {
   id: number;
   title: string;
   content: string[];
+  img: string;
 };
 
 export const data: DataProps[] = [
   {
     id: 1,
+    img: medals,
     title: 'Rewards, badges and points',
     content: [
       `At eStudents, we believe in recognising and rewarding your active participation in the community. That's why we've created a points and rewards system that allows you to earn points for your contributions and redeem them for amazing benefits and exclusive opportunities. Not only will you earn points... you will have a series of achievements that will earn you badges. Are you the most popular in your class? Or perhaps the smartest? Have you won an event on our platform? Compete and show off your badges and reach the top of the ranking! (Badges may give you access to exclusive activities but shhh).`,
@@ -18,6 +24,7 @@ export const data: DataProps[] = [
   },
   {
     id: 2,
+    img: students,
     title: 'We are here to help you',
     content: [
       `At eStudents we believe that university isn't just about studying; it's also about creating meaningful connections and building a strong, supportive community. Did you know that a group of friends at university usually stays together forever? Our platform is designed to facilitate connections between students both within and between universities, foster collaboration and create a sense of belonging throughout our community.`,
@@ -29,6 +36,7 @@ export const data: DataProps[] = [
   },
   {
     id: 3,
+    img: campus,
     title: 'Students around the globe!',
     content: [
       `At eStudents, we're here to be your companion on the college journey, and that includes both the academic and personal side! Our study and theme rooms are like your second home on campus, where you can hang out with your friends, ask questions about that algebra problem you don't understand (did someone say: "Rewards for studying"?) or just hang out with other students while you work on projects.`,

@@ -20,7 +20,7 @@ const UnsubscribePage = () => {
   const onSubmit = async (data: FieldValues) => {
     setIsSubmitting(true);
     try {
-      await axios.delete('http://localhost:4000/deleteMail', { data });
+      await axios.delete(import.meta.env.BASE_URL + '/deleteMail', { data });
     } catch (error: unknown) {
       console.log(error);
     } finally {

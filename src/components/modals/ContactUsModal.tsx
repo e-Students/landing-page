@@ -6,6 +6,7 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import clsx from 'clsx';
 import { useState } from 'react';
 import axios from 'axios';
+import logo from '../../../public/favIcon.png';
 
 interface ContactUsModalProps {
   isOpen?: boolean;
@@ -31,7 +32,7 @@ const ContactUsModal = ({ isOpen, onClose }: ContactUsModalProps) => {
     console.log(data);
     setDisabled(true);
     try {
-      await axios.post('http://localhost:4000/contactUs', data);
+      await axios.post(import.meta.env.BASE_URL + '/contactUs', data);
     } catch (error: unknown) {
       console.log(error);
     } finally {
@@ -44,9 +45,17 @@ const ContactUsModal = ({ isOpen, onClose }: ContactUsModalProps) => {
       isOpen={isOpen}
       onClose={onClose}>
       <div className='p-4'>
-        <h1 className='mb-4 text-2xl font-base text-medium w-full text-center'>
-          Contact Us
-        </h1>
+        <div className='flex mb-4 items-center justify-center gap-3'>
+          {' '}
+          <img
+            className=' rounded-full w-8 h-8'
+            src={logo}
+            alt='logo eStudents'
+          />
+          <h1 className=' text-2xl font-base text-medium  text-center'>
+            Contact Us
+          </h1>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             id='name'
@@ -83,7 +92,7 @@ const ContactUsModal = ({ isOpen, onClose }: ContactUsModalProps) => {
             type='submit'
             disabled={disabled}
             className={clsx(
-              `mt-4 rounded-xl w-full bg-forest text-neutral-100 font-base`,
+              `mt-4 rounded-xl w-full bg-primary text-neutral-100 font-base`,
               disabled && 'opacity-50 cursor-default'
             )}>
             Submit

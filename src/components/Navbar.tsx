@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
-import Logo from './Logo';
+import logo from '../assets/logoestudents.png';
 import ContactUsModal from './modals/ContactUsModal';
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -8,7 +8,10 @@ const Navbar = () => {
   return (
     <nav className=' bg-primary w-full min-h-[100px] flex flex-wrap items-center justify-between px-4 font-base'>
       <div className='ml-8'>
-        <Logo />
+        <img
+          src={logo}
+          alt='logo eStudents'
+        />
       </div>
 
       <section className='flex items-center justify-center gap-3 mr-12'>

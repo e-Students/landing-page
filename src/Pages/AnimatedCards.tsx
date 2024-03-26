@@ -14,15 +14,21 @@ const AnimatedCards = () => {
           layoutId={item.id.toString()}
           initial={{ scale: 0.9 }}
           whileHover={{ scale: 1, x: -10, y: -10, gap: -10, padding: 50 }}
-          className={` row-span-3 grid grid-cols-12  cursor-pointer transition-all duration-500 font-base `}>
+          className={` row-span-3 grid grid-cols-12 font-base `}>
           {item.id % 2 !== 0 ? (
             <>
-              <motion.h2
-                className='text-4xl flex col-span-6 w-full h-full items-center text-center justify-center flex-col 
-             '>
-                {item.title}
-              </motion.h2>
-              <motion.div className='col-span-6 flex flex-col  justify-center text-xs text-primary text-end'>
+              <motion.div
+                className=' text-3xl flex 
+              col-span-6 w-full h-full items-center text-center 
+              justify-center flex-col relative  '>
+                <motion.h2 className='  m-auto z-50'>{item.title}</motion.h2>{' '}
+                <motion.img
+                  src={item.img}
+                  alt={item.title}
+                  className=' absolute inset-0 w-full h-full object-cover opacity-45 rounded-lg '
+                />
+              </motion.div>
+              <motion.div className='col-span-6 flex flex-col  justify-center text-xs text-primary text-end cursor-pointer'>
                 <motion.p
                   className={clsx(
                     'col-span-6 text-sm p-5  text-black text-start '
@@ -43,9 +49,17 @@ const AnimatedCards = () => {
                 </motion.p>
                 ... Read More
               </motion.div>
-              <motion.h2 className='text-4xl flex col-span-6 w-full h-full items-center text-center justify-center'>
-                {item.title}
-              </motion.h2>
+              <motion.div
+                className='text-3xl flex col-span-6 
+                w-full h-full items-center text-center justify-center flex-col relative
+                 '>
+                <motion.h2 className=' m-auto z-10'>{item.title}</motion.h2>{' '}
+                <motion.img
+                  src={item.img}
+                  alt={item.title}
+                  className=' absolute inset-0 w-full h-full object-cover opacity-65 rounded-lg  '
+                />
+              </motion.div>
             </>
           )}
         </motion.div>
@@ -64,6 +78,13 @@ const AnimatedCards = () => {
               <motion.h2 className='text-4xl flex col-span-6  text-black font-base font-bold '>
                 {data.find((item) => item.id.toString() === selectedId)?.title}
               </motion.h2>
+              <motion.img
+                src={
+                  data.find((item) => item.id.toString() === selectedId)?.img
+                }
+                alt='selected'
+                className='w-full h-[200px] object-cover rounded-lg '
+              />
               {data
                 .find((item) => item.id.toString() === selectedId)
                 ?.content.map((item) => (
