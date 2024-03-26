@@ -18,23 +18,32 @@ const AnimatedCards = () => {
           {item.id % 2 !== 0 ? (
             <>
               <motion.h2
-                className='text-4xl flex col-span-6 w-full h-full items-center text-center justify-center 
+                className='text-4xl flex col-span-6 w-full h-full items-center text-center justify-center flex-col 
              '>
                 {item.title}
               </motion.h2>
-
-              <motion.p className={clsx('col-span-6 text-sm p-5 ')}>
-                {item.content[0]}
-              </motion.p>
+              <motion.div className='col-span-6 flex flex-col  justify-center text-xs text-primary text-end'>
+                <motion.p
+                  className={clsx(
+                    'col-span-6 text-sm p-5  text-black text-start '
+                  )}>
+                  {item.content[0]}
+                </motion.p>
+                ... Read More
+              </motion.div>
             </>
           ) : (
             <>
-              <motion.p className={clsx('col-span-6 text-sm p-5 ')}>
-                {item.content[0]}
-              </motion.p>
-              <motion.h2
-                className='text-4xl flex col-span-6 w-full h-full items-center text-center justify-center 
-              '>
+              <motion.div className='col-span-6 flex flex-col  justify-center text-xs text-primary text-start'>
+                <motion.p
+                  className={clsx(
+                    'col-span-6 text-sm p-5 text-start text-black '
+                  )}>
+                  {item.content[0]}
+                </motion.p>
+                ... Read More
+              </motion.div>
+              <motion.h2 className='text-4xl flex col-span-6 w-full h-full items-center text-center justify-center'>
                 {item.title}
               </motion.h2>
             </>
