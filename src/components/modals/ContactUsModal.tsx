@@ -32,7 +32,7 @@ const ContactUsModal = ({ isOpen, onClose }: ContactUsModalProps) => {
     console.log(data);
     setDisabled(true);
     try {
-      await axios.post(import.meta.env.BASE_URL + '/contactUs', data);
+      await axios.post('https://backend-landing.onrender.com/contactUs', data);
     } catch (error: unknown) {
       console.log(error);
     } finally {

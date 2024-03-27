@@ -20,7 +20,9 @@ const UnsubscribePage = () => {
   const onSubmit = async (data: FieldValues) => {
     setIsSubmitting(true);
     try {
-      await axios.delete(import.meta.env.BASE_URL + '/deleteMail', { data });
+      await axios.delete('https://backend-landing.onrender.com/deleteMail', {
+        data,
+      });
     } catch (error: unknown) {
       console.log(error);
     } finally {
