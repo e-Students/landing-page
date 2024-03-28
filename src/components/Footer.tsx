@@ -33,13 +33,13 @@ const Footer = () => {
           extra points!
         </p>
         <form
-          className='flex border-2 items-center justify-between rounded-full overflow-hidden'
+          className=' flex border-2 items-center justify-between rounded-full overflow-hidden'
           onSubmit={handleSubmit(onSubmit)}>
           <input
             {...register('email', { required: true })}
             type='email'
             placeholder='Enter your email'
-            className='border-none p-2 w-[350px] focus:outline-none focus:ring-0 focus:border-transparent'
+            className='border-none p-2 w-[200px] md:w-[350px] focus:outline-none focus:ring-0 focus:border-transparent'
           />
           <button
             className='p-2 bg-forest text-neutral-200'
