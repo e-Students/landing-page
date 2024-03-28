@@ -4,7 +4,7 @@ import logo from '../assets/logoestudents.png';
 import ContactUsModal from './modals/ContactUsModal';
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  console.log(isModalOpen);
+
   return (
     <nav className=' bg-primary w-full min-h-[100px] flex flex-wrap items-center justify-between px-4 font-base'>
       <div className='ml-8'>
