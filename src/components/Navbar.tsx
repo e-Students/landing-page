@@ -2,17 +2,26 @@ import { useState } from 'react';
 import Button from './Button';
 import logo from '../assets/logoestudents.png';
 import ContactUsModal from './modals/ContactUsModal';
+import { motion } from 'framer-motion';
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <nav className=' bg-primary w-full min-h-[100px] flex flex-wrap items-center justify-between px-4 font-base'>
-      <div className='ml-8'>
+      <motion.div
+        className='ml-8'
+        initial='hidden'
+        animate={{
+          scale: [0.1, 1, 1.1],
+          rotateY: [360, 0],
+          transition: { duration: 2 },
+          x: [100, 80, 60, 40, 20, 0],
+        }}>
         <img
           src={logo}
           alt='logo eStudents'
         />
-      </div>
+      </motion.div>
 
       <section className='flex items-center justify-center gap-3 mr-12'>
         <Button
