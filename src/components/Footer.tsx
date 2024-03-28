@@ -16,7 +16,6 @@ const Footer = () => {
     setIsLoading(true);
 
     try {
-      console.log(data);
       await axios.post('https://backend-landing.onrender.com/newMail', data);
     } catch (error: unknown) {
       console.log(error);

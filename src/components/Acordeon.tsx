@@ -18,7 +18,7 @@ const Acordeon = ({
   onOpen,
 }: AcordeonProps) => {
   const acordionRef = useRef<HTMLDivElement>(null);
-  console.log(acordionRef);
+
   return (
     <motion.div
       onClick={onOpen}

@@ -29,7 +29,6 @@ const ContactUsModal = ({ isOpen, onClose }: ContactUsModalProps) => {
   });
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
     setDisabled(true);
     try {
       await axios.post('https://backend-landing.onrender.com/contactUs', data);
