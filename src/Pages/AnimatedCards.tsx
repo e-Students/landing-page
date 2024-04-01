@@ -1,12 +1,32 @@
 import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { data } from '../data/Articles.data';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Footer from '../components/Footer';
+import { Modal } from '../components/modals/Modal';
 
 const AnimatedCards = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const popUpTimer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 5000);
+
+    return () => {
+      clearTimeout(popUpTimer);
+    };
+  }, []);
   return (
     <>
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}>
+          <Footer />
+        </Modal>
+      )}
       {data.map((item) => (
         <motion.div
           key={item.id}
