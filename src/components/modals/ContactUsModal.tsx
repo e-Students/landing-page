@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import axios from 'axios';
 import logo from '../../../public/favIcon.png';
+import { LuLoader2 } from 'react-icons/lu';
 
 interface ContactUsModalProps {
   isOpen?: boolean;
@@ -15,6 +16,7 @@ interface ContactUsModalProps {
 
 const ContactUsModal = ({ isOpen, onClose }: ContactUsModalProps) => {
   const [disabled, setDisabled] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -30,12 +32,15 @@ const ContactUsModal = ({ isOpen, onClose }: ContactUsModalProps) => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setDisabled(true);
+    setIsLoading(true);
     try {
+      //await axios.post('http://localhost:4000/contactUs', data);
       await axios.post('https://backend-landing.onrender.com/contactUs', data);
     } catch (error: unknown) {
       console.log(error);
     } finally {
       setDisabled(false);
+      setIsLoading(false);
       onClose();
     }
   };
@@ -93,7 +98,13 @@ const ContactUsModal = ({ isOpen, onClose }: ContactUsModalProps) => {
             className={clsx(
               `mt-4 rounded-xl w-full bg-primary text-neutral-100 font-base`,
               disabled && 'opacity-50 cursor-default'
-            )}>
+            )}
+            Icon={isLoading ? <LuLoader2 /> : null}
+            iconClassName={clsx(
+              `opacity-0`,
+              isLoading && 'opacity-100 animate-spin'
+            )}
+            showIcon={isLoading}>
             Submit
           </Button>
         </form>
