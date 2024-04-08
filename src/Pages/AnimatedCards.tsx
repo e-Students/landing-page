@@ -24,7 +24,7 @@ const AnimatedCards = () => {
         <Modal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}>
-          <Footer />
+          <Footer showPolicy={false} />
         </Modal>
       )}
       {data.map((item) => (

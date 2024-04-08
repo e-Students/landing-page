@@ -3,7 +3,7 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import Loader from './Loader';
 import axios from 'axios';
 
-const Footer = () => {
+const Footer = ({ showPolicy }: { showPolicy: boolean }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { register, handleSubmit } = useForm<FieldValues>({
@@ -47,6 +47,16 @@ const Footer = () => {
             Subscribe
           </button>
         </form>
+        {showPolicy && (
+          //Meter el policy en un modal
+          <div className='text-xs text-center'>
+            <a
+              href='#'
+              className='text-neutral-200'>
+              Privacy Policy
+            </a>
+          </div>
+        )}
       </footer>
     </>
   );

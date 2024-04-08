@@ -24,7 +24,7 @@ function App() {
         </Routes>
       </Router>
 
-      <Footer />
+      <Footer showPolicy={true} />
     </div>
   );
 }
