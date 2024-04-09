@@ -60,7 +60,8 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
                 className='
                   relative 
                   transform 
-                  overflow-hidden 
+                  overflow-hidden
+                  min-w-fit
                   rounded-lg 
                   bg-white 
                   px-4 
