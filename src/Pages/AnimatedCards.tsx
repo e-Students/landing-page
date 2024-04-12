@@ -33,7 +33,6 @@ const AnimatedCards = () => {
           onClick={() => setSelectedId(item.id.toString())}
           layoutId={item.id.toString()}
           initial={{ scale: 0.9 }}
-          whileHover={{ scale: 1, x: -10, y: -10, gap: -10, padding: 50 }}
           className={` row-span-3 grid grid-cols-12 font-base `}>
           {item.id % 2 !== 0 ? (
             <>
