@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import PolicyModal from './modals/PolicyModal';
+import Button from './Button';
 import Loader from './Loader';
 import axios from 'axios';
 
 const Footer = ({ showPolicy }: { showPolicy: boolean }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const { register, handleSubmit } = useForm<FieldValues>({
@@ -49,13 +52,15 @@ const Footer = ({ showPolicy }: { showPolicy: boolean }) => {
         </form>
         {showPolicy && (
           //Meter el policy en un modal
-          <div className='text-xs text-center'>
-            <a
-              href='#'
-              className='text-neutral-200'>
-              Privacy Policy
-            </a>
+          <div className='text-center'>
+            <Button
+              onClick={() => setModalOpen(true)}
+              className='text-white border-none text-md hover:underline'>
+              <button onClick={() => setModalOpen(true)}>Privacy Policy</button>
+            </Button>
+            <PolicyModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
           </div>
+
         )}
       </footer>
     </>
