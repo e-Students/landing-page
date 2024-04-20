@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import Button from './Button';
-import logo from '../assets/logoestudents.png';
+import logo from '../assets/logoestudents1.png';
 import ContactUsModal from './modals/ContactUsModal';
 import { motion } from 'framer-motion';
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
-    <nav className=' bg-primary w-full min-h-[100px] flex flex-wrap items-center justify-between px-4 font-base'>
+    <nav className=' bg-primary w-full min-h-[100px] flex flex-wrap items-center justify-between px-4 font-base overflow-hidden'>
       <motion.div
         className='ml-8'
         initial='hidden'
@@ -20,6 +20,7 @@ const Navbar = () => {
         <img
           src={logo}
           alt='logo eStudents'
+          className='w-[200px] object-contain'
         />
       </motion.div>
 
