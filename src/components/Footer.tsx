@@ -9,7 +9,7 @@ const Footer = ({ showPolicy }: { showPolicy: boolean }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { register, handleSubmit } = useForm<FieldValues>({
+  const { register, handleSubmit, setValue } = useForm<FieldValues>({
     defaultValues: {
       email: '',
     },
@@ -24,6 +24,7 @@ const Footer = ({ showPolicy }: { showPolicy: boolean }) => {
       console.log(error);
     } finally {
       setIsLoading(false);
+      setValue('email', '');
     }
   };
   return (
@@ -58,9 +59,11 @@ const Footer = ({ showPolicy }: { showPolicy: boolean }) => {
               className='text-white border-none text-md hover:underline'>
               <button onClick={() => setModalOpen(true)}>Privacy Policy</button>
             </Button>
-            <PolicyModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+            <PolicyModal
+              isOpen={isModalOpen}
+              onClose={() => setModalOpen(false)}
+            />
           </div>
-
         )}
       </footer>
     </>
